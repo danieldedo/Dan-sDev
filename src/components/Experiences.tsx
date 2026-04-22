@@ -1,13 +1,11 @@
 import Title from "./Title";
 import { motion } from "framer-motion";
 import { 
-  SiReact, 
   SiNextdotjs, 
   SiNodedotjs, 
   SiAngular, 
   SiTypescript, 
   SiLaravel, 
-  SiPhp, 
   SiSpringboot, 
   SiSymfony, 
   SiPostgresql,
