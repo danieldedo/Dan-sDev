@@ -15,11 +15,10 @@ const Home = () => {
         className="flex flex-col max-w-2xl"
       >
         <h1 className="text-5xl md:text-7xl font-bold text-center md:text-left leading-tight">
-          Bonjour, <br /> je suis <span className="text-accent">Daniel DEDO</span>
+          Bonjour, <br /> je suis <span className="text-accent">Daniel O. DEDO</span>
         </h1>
-        <p className="my-6 text-lg text-center md:text-left text-base-content/80 leading-relaxed">
-          Développeur <span className="text-primary font-semibold">Fullstack</span> passionné avec déjà plus de 2 ans d'expérience. 
-          Je conçois des expériences numériques innovantes avec <span className="font-mono bg-base-300 px-2 py-1 rounded"></span>.
+        <p className="my-6 text-xl text-center md:text-left text-base-content/80 leading-relaxed font-medium">
+          Ingénieur orienté <span className="text-primary font-bold">Backend</span>, je me spécialise dans la conception d'architectures robustes, performantes et sécurisées. Ma mission : bâtir le socle technique essentiel qui propulse vos solutions numériques.
         </p>
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -27,7 +26,7 @@ const Home = () => {
           className="flex justify-center md:justify-start"
         >
           <a
-            href="mailto:danieldedo182@gmail.com"
+            href="#Contact"
             className="btn btn-accent btn-lg shadow-lg shadow-accent/20"
           >
             <Mail className="w-5 h-5" />
