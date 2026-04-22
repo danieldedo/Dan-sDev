@@ -1,106 +1,126 @@
 import Title from "./Title";
-
-import img1 from '../assets/projects/1.png';
-import img2 from '../assets/projects/2.png';
-import img3 from '../assets/projects/3.png';
-import img4 from '../assets/projects/4.png';
-import img5 from '../assets/projects/5.png';
-import img6 from '../assets/projects/6.png';
+import { motion } from "framer-motion";
 import { Github, Video } from "lucide-react";
+
+import imgNews from '../assets/projects/news_portal.png';
+import imgBenin from '../assets/projects/informatique_benin.png';
+import imgWeather from '../assets/projects/weather_app.png';
+import imgAcademia from '../assets/projects/academiaplus.png';
+import imgPortfolio from '../assets/projects/portfolio_v2.png';
 
 const projects = [
     {
         id: 1,
-        title: 'Gestionnaire de tâches',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['React', 'Node.js', 'Tailwind CSS'],
+        title: 'Portail d\'Actualités "News TV"',
+        description: 'Une plateforme dynamique de gestion d\'articles avec sidebar personnalisée, diffusion en direct et interface ultra-réactive.',
+        technologies: ['React', 'Tailwind CSS', 'Node.js'],
         demoLink: '#',
         repoLink: '#',
-        image: img1,
+        image: imgNews,
     },
     {
         id: 2,
-        title: 'Plateforme E-commerce',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Next.js', 'TypeScript', 'Prisma'],
+        title: 'AcademiaPlus',
+        description: 'Système complet de gestion académique permettant le suivi des étudiants, la gestion des dossiers et le pilotage administratif.',
+        technologies: ['Laravel', 'Vue.js', 'MySQL'],
         demoLink: '#',
         repoLink: '#',
-        image: img2,
+        image: imgAcademia,
     },
     {
         id: 3,
-        title: 'Portfolio interactif',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['HTML', 'CSS', 'JavaScript'],
+        title: 'Informatique Bénin',
+        description: 'La plateforme IT N°1 au Bénin pour propulser les carrières numériques et connecter les talents aux meilleures opportunités.',
+        technologies: ['React', 'Framer Motion', 'Tailwind CSS'],
         demoLink: '#',
         repoLink: '#',
-        image: img3,
+        image: imgBenin,
     },
     {
         id: 4,
-        title: 'Application de Chat en temps réel',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['React', 'Socket.io', 'Express.js'],
+        title: 'Météo App',
+        description: 'Application de prévisions météorologiques précises avec géolocalisation, interface intuitive et prévisions sur 5 jours.',
+        technologies: ['JavaScript', 'API OpenWeather', 'CSS3'],
         demoLink: '#',
         repoLink: '#',
-        image: img4,
+        image: imgWeather,
     },
     {
         id: 5,
-        title: 'Système de réservation de salles',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Next.js', 'MongoDB', 'Chakra UI'],
+        title: 'Portfolio Professionnel v2',
+        description: 'Mon propre portfolio moderne, conçu avec une esthétique premium, des animations avancées et un système de thèmes dynamique.',
+        technologies: ['React 19', 'Framer Motion', 'Tailwind 4'],
         demoLink: '#',
         repoLink: '#',
-        image: img5,
-    },
-    {
-        id: 6,
-        title: 'Analyseur de sentiment',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Python', 'Flask', 'NLTK'],
-        demoLink: '#',
-        repoLink: '#',
-        image: img6,
+        image: imgPortfolio,
     },
 ];
 
 const Projects = () => {
     return (
-        <div className="mt-10" id="Project">
-            <Title title="Mes projets"/>
-            <div className="grid md:grid-cols-3 gap-4">
-                {projects.map((project) => (
-                    <div key={project.id} className="bg-base-300 p-5 h-fit rounded-xl shadow-lg">
-                        <img className="w-full rounded-xl h-56 object-cover" src={project.image} alt={project.title} />
-                        <div>
-                            <h1 className="my-2 font-bold">
+        <section className="mt-20" id="Project">
+            <Title title="Mes Projets" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                {projects.map((project, index) => (
+                    <motion.div 
+                        key={project.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        whileHover={{ y: -10 }}
+                        className="glass-card flex flex-col h-full rounded-3xl overflow-hidden group border border-white/5 shadow-2xl"
+                    >
+                        {/* Image avec Overlay au survol */}
+                        <div className="relative overflow-hidden h-52">
+                            <img 
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                                src={project.image} 
+                                alt={project.title} 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <span className="text-white text-xs font-medium">Voir les détails</span>
+                            </div>
+                        </div>
+
+                        {/* Contenu */}
+                        <div className="p-6 flex flex-col flex-grow">
+                            <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
                                 {project.title}
-                            </h1>
-                            <p className="text-sm">{project.description}</p>
-                        </div>
-                        <div className="flex flex-wrap gap-2 my-3">
-                            {project.technologies.map((tech) => (
-                                <span className="badge badge-accent badge-sm">{tech}</span>
-                            ))}
-                        </div>
-                        <div className="flex">
-                            <a className="btn btn-accent w-2/3" href={project.demoLink}>
-                                Demo
-                                <Video className="w-4"/>
-                            </a>
+                            </h3>
+                            <p className="text-sm text-base-content/70 mb-4">
+                                {project.description}
+                            </p>
 
-                            <a className="btn btn-neutral w-1/3 ml-2" href={project.repoLink}>
-                                
-                                <Github className="w-4" />
-                            </a>
-                            
-                        </div>
-                    </div>
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {project.technologies.map((tech) => (
+                                    <span key={tech} className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-accent/10 text-accent rounded-full border border-accent/20">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
 
+                            {/* Liens */}
+                            <div className="flex items-center gap-3 mt-auto">
+                                <a 
+                                    href={project.demoLink} 
+                                    className="flex-1 btn btn-accent btn-sm rounded-xl gap-2"
+                                >
+                                    Démo <Video className="w-4 h-4"/>
+                                </a>
+                                <a 
+                                    href={project.repoLink} 
+                                    className="btn btn-neutral btn-sm rounded-xl px-3"
+                                    aria-label="Code Source"
+                                >
+                                    <Github className="w-5 h-5" />
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
 

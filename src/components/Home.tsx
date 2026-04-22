@@ -1,30 +1,69 @@
 import { Mail } from "lucide-react";
-import img from "../assets/img.jpg";
+import img from "../assets/avatar.png";
+import { motion } from "framer-motion";
+
 const Home = () => {
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-center items-center md:my-32 my-10" id="Home">
-      <div className="flex flex-col">
-        <h1 className="text-5xl md:text-6xl font-bold text-center md:text-left  mt-4 md:mt-0">
-          Bonjour, <br /> je suis <span className="text-accent">Dan'sDev</span>
+    <section
+      className="flex flex-col-reverse md:flex-row justify-between items-center md:my-32 my-10 gap-10"
+      id="Home"
+    >
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col max-w-2xl"
+      >
+        <h1 className="text-5xl md:text-7xl font-bold text-center md:text-left leading-tight">
+          Bonjour, <br /> je suis <span className="text-accent">Daniel DEDO</span>
         </h1>
-        <p className="my-4 text-md text-center md:text-left">
-          Je suis un développeur fullstack <br /> avec 2 ans d'expérience,
-          utilisant React <br /> et Nodes?js. Contactez-moi si vous avez besoin
-          de mes services.
+        <p className="my-6 text-lg text-center md:text-left text-base-content/80 leading-relaxed">
+          Développeur <span className="text-primary font-semibold">Fullstack</span> passionné avec déjà plus de 2 ans d'expérience. 
+          Je conçois des expériences numériques innovantes avec <span className="font-mono bg-base-300 px-2 py-1 rounded"></span>.
         </p>
-        <a href="" className="btn btn-accent md:w-fit">
-          <Mail className="w-5 h-5" />
-          Contactez-moi
-        </a>
-      </div>
-      <div className="md:ml-60">
-        <img src={img} alt="" className="w-96 h-96 object-cover border-8  border-accent shadow-xl"
-        style={{
-            borderRadius: "30% 70% 70% 30% / 67% 62% 38% 33% "
-        }}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex justify-center md:justify-start"
+        >
+          <a
+            href="mailto:danieldedo182@gmail.com"
+            className="btn btn-accent btn-lg shadow-lg shadow-accent/20"
+          >
+            <Mail className="w-5 h-5" />
+            Discutons de votre projet
+          </a>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+        {/* Un petit cercle décoratif derrière l'image */}
+        <div className="absolute -inset-4 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+
+        <motion.img
+          src={img}
+          alt="Daniel O. DEDO Avatar"
+          className="w-80 h-80 md:w-96 md:h-96 object-cover border-4 border-accent shadow-2xl relative z-10"
+          style={{
+            borderRadius: "30% 70% 70% 30% / 67% 62% 38% 33% ",
+          }}
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 5, 0, -5, 0], 
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 };
 
