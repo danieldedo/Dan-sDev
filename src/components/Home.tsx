@@ -15,10 +15,10 @@ const Home = () => {
         className="flex flex-col max-w-2xl"
       >
         <h1 className="text-5xl md:text-7xl font-bold text-center md:text-left leading-tight">
-          Bonjour, <br /> je suis <span className="text-accent">Daniel O. DEDO</span>
+          Bonjour, <br /> je suis <span className="text-accent">Daniel DEDO</span>
         </h1>
         <p className="my-6 text-xl text-center md:text-left text-base-content/80 leading-relaxed font-medium">
-          Ingénieur orienté <span className="text-primary font-bold">Backend</span>, je me spécialise dans la conception d'architectures robustes, performantes et sécurisées. Ma mission : bâtir le socle technique essentiel qui propulse vos solutions numériques.
+          Développeur <span className="text-primary font-bold">Fullstack</span>, je me spécialise dans la création d'architectures robustes, performantes et sécurisées. Ma mission : bâtir le socle technique essentiel qui propulse vos solutions numériques.
         </p>
         <motion.div
           whileHover={{ scale: 1.05 }}
